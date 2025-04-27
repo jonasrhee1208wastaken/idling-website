@@ -42,6 +42,24 @@
         if (newText !== null) {
             link.textContent = newText;
         }
+
+        // Save the updated link and text in local storage
+        localStorage.setItem(linkId + 'Url', link.href);
+        localStorage.setItem(linkId + 'Text', link.textContent);
+    }
+
+    // Load saved links from local storage
+    window.onload = function() {
+        for (let i = 1; i <= 3; i++) {
+            const savedUrl = localStorage.getItem('link' + i + 'Url');
+            const savedText = localStorage.getItem('link' + i + 'Text');
+            if (savedUrl) {
+                document.getElementById('link' + i).href = savedUrl;
+            }
+            if (savedText) {
+                document.getElementById('link' + i).textContent = savedText;
+            }
+        }
     }
 </script>
 
