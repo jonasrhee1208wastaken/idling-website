@@ -7,6 +7,44 @@
 
 <h1>Ze Idle Website</h1>
 <p>Ya being watched, buddy?<br>Have some bookmarks.</p>
+<body>
+    <div>
+        <a id="link1" href="https://example.com">Link 1</a>
+        <button onclick="editLink('link1')">Edit</button>
+    </div>
+    
+    <div>
+        <a id="link2" href="https://example.com">Link 2</a>
+        <button onclick="editLink('link2')">Edit</button>
+    </div>
+    
+    <div>
+        <a id="link3" href="https://example.com">Link 3</a>
+        <button onclick="editLink('link3')">Edit</button>
+    </div>
 
+    <script>
+        function editLink(linkId) {
+            const link = document.getElementById(linkId);
+            
+            // Prompt for new URL
+            const newUrl = prompt("Enter the new URL:", link.href);
+            
+            // If user didn't cancel, update URL
+            if (newUrl !== null) {
+                link.href = newUrl;
+            }
+            
+            // Prompt for new link text
+            const newText = prompt("Enter the new link text:", link.textContent);
+            
+            // If user didn't cancel, update link text
+            if (newText !== null) {
+                link.textContent = newText;
+            }
+        }
+    </script>
+</body>
+</html>
 </body>
 </html> 
